@@ -147,7 +147,7 @@ $(document).ready(function () {
         $('#d').text(nbaTrivia[item].choices[3]).show('slow');
         $('.timer').show('slow');
         $('.answer').hide('slow');
-        console.log('giveQuestions');
+        //console.log('giveQuestions');
         click = false;
     }
     //start game button
@@ -165,7 +165,7 @@ $(document).ready(function () {
             $(this).hide();
             timer.start();
             giveQuestions(questionIndex);
-            console.log('startGame')
+            //console.log('startGame')
         })
 
     }
@@ -180,9 +180,9 @@ $(document).ready(function () {
                 $('#c').text('');
                 $('#d').text('');
                 $('.answer').text('');
-                console.log('hideContent');
+               // console.log('hideContent');
             }, 2000); questionIndex++;
-            console.log('hideContent2')
+           // console.log('hideContent2')
         }
             
     };
@@ -191,17 +191,17 @@ $(document).ready(function () {
         if (questionIndex < nbaTrivia.length) {
             setTimeout(function () {
                 giveQuestions(questionIndex);
-                console.log('loadNextContent');
+                //console.log('loadNextContent');
             }, 2000)
         } else {
             $('.choice').hide();
             score();
-            console.log('loadNextContentelse')
+            //console.log('loadNextContentelse')
         }
     };
 
     function end (){
-        console.log('end');
+        //console.log('end');
         if(questionIndex === nbaTrivia.length){
             gameEnd = true;
         }
@@ -210,14 +210,14 @@ $(document).ready(function () {
     //conditions when answer is right
     function right() {
         rightAnswers++; //adds point to the right answer variable
-        console.log('right');
+        //console.log('right');
         aRight();
     };
 
     //condition when answer is wrong
     function wrong() {
         wrongAnswers++; //adds a point on the wrong answer variable
-        console.log('wrong');
+        //console.log('wrong');
         $('.answer').append(nbaTrivia[questionIndex].answer);
         $('.answer').show('slow');
         aWrong();
@@ -233,7 +233,7 @@ $(document).ready(function () {
         timer.stop(); //stop timer when game ends
         $('.timer').empty().hide();
         winOrlose();
-        console.log('score')
+        //console.log('score')
     };
 
 
@@ -243,17 +243,17 @@ $(document).ready(function () {
         reset: function () {
             this.time = 15;
             $('.timer').html(this.time + ' sec remaining'); //show time
-            console.log('reset');
+           // console.log('reset');
         },
         //counter
         start: function () {
             counter = setInterval(timer.count, 1000); //sets interval
-            console.log('start');
+           // console.log('start');
         },
         //clear the interval of the timer
         stop: function () {
             clearInterval(counter);
-            console.log('stop');
+           // console.log('stop');
         },
 
         count: function () {
@@ -272,7 +272,7 @@ $(document).ready(function () {
                 } else {
                     $('.choice').hide();
                     score();
-                    console.log('else')
+                   // console.log('else')
                 }
             }
         }
@@ -287,15 +287,15 @@ $(document).ready(function () {
             $('.question').append("<embed src='https://media.giphy.com/media/xTiTnDAP0RiCo9k85W/giphy.gif'>")
         }
         $('.answer').text('');
-        console.log('winOrLose');
+        //console.log('winOrLose');
     };
 
     startGame();
 
     //lets you know which choice is clicked
     $('.choice').on('click', function () {
-        console.log($(this.id));
-        console.log('check');
+        //console.log($(this.id));
+       // console.log('check');
         if(click === false){
             if (this.id === 'a') { //if this is clicked, then that is the user's answer
             userAnswer = 'a';
