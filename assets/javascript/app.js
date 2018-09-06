@@ -3,12 +3,12 @@ console.log('Game Start');
 
 //questions variables
 let question1 = {
-    question: "Which NBA team has the most championship?",
+    question: "The NBA team that has the most championships?",
     choices: ['a: Los Angeles Lakers',
         'b: Chicago Bulls',
         'c: Boston Celtics',
         'd: Golden State Warriors'],
-    answer: 'Boston Celtics',
+    answer: 'Boston Celtics with 17',
     condition: [false, false, true, false]
 };
 
@@ -18,7 +18,7 @@ let question2 = {
         'b: Kareem Abdul-Jabbar',
         'c: Lebron James',
         'd: Michael Jordan'],
-    answer: 'Michael Jordan',
+    answer: 'Michael Jordan in reference to his super-human like hangtime',
     condition: [false, false, false, true]
 };
 
@@ -29,37 +29,37 @@ let question3 = {
         "b: Shaquel O'Neal",
         'c: Lebron James',
         'd: Dwight Howard'],
-    answer: "Shaquel O'Neal",
+    answer: "Shaquel O'Neal earned the nickname after his 'Shaq Diesel' album release",
     condition: [false, true, false, false]
 };
 
 let question4 = {
-    question: "The only Player in NBA history to have 2 jersey's retire by one team.",
+    question: "The only Player in NBA history to have 2 Numbers retired by a single team.",
     choices: ["a: Shaquel O'Neal",
         'b: Lebron James',
         'c: Kobe Bryant',
         'd: Larry Bird'],
-    answer: "Kobe Bryant",
+    answer: "Kobe Bryant's #8 and #24 jersey was retired in 2017",
     condition: [false, false, true, false]
 };
 
 let question5 = {
-    question: "Who holds the record for most 3-points made in an NBA regular season?",
+    question: "This player holds the record for most 3-points made in an NBA regular season?",
     choices: ['a: Kobe Bryant',
         'b: Ray Allen',
         'c: Stephen Curry',
         'd: Peja Stojakovic'],
-    answer: "Stephen Curry",
+    answer: "Stephen Curry holds the record with 402 3-pointers made in a season",
     condition: [false, false, true, false]
 };
 
 let question6 = {
-    question: "Which NBA player won the most Most Valuable Player Awards?",
+    question: "NBA player with the most MVP Awards?",
     choices: ['a: Kareem Abdul-Jabbar',
         'b: Bill Russell',
         'c: Larry Bird',
         'd: Lebron James'],
-    answer: 'Kareem Abdul-Jabbar',
+    answer: 'Kareem Abdul-Jabbar won the MVP award 6 times in his 20 year pro career',
     condition: [true, false, false, false]
 };
 
@@ -69,17 +69,17 @@ let question7 = {
         'b: Kobe Bryant',
         'c: Wilt Chamberlain',
         'd: Bill Russell'],
-    answer: "Bill Russel",
+    answer: "Bill Russel with 11 of the 17 Boston Celtics championships",
     condition: [false, false, false, true]
 };
 
 let question8 = {
-    question: "Who is the 2014 NBA champion of the year?",
+    question: "The 2014 NBA champion?",
     choices: ['a: Los Angeles Lakers',
         'b: Golden State Warriors',
         'c: San Antonio Spurs',
         'd: Miami heat'],
-    answer: "San Antonio Spurs",
+    answer: "San Antonio Spurs beat the Miami Heat 4-1",
     condition: [false, false, true, false]
 };
 
@@ -89,22 +89,22 @@ let question9 = {
         'b: David Robinson',
         'c: Bill Russell',
         'd: Magic Johnson'],
-    answer: "David Robinson",
+    answer: "David Robinson served 2years in the Navy before getting drafted #1",
     condition: [false, true, false, false]
 };
 
 let question10 = {
-    question: "The only player in NBA history to average triple-Double in multiple seasons.",
+    question: "The only player in NBA history to average a triple-Double in multiple seasons.",
     choices: ['a: Bill Russell',
         'b: Kobe Bryant',
         'c: Michael Jordan',
         'd: Russel Westbrook'],
-    answer: "Russel Westbrook",
+    answer: "Russel Westbrook averaged a triple-double in 2016 and 2017 season",
     condition: [false, false, false, true]
 };
 
 let question11 = {
-    question: "Who is the Greatest player of all time?",
+    question: "The Greatest NBA player of all time?",
     choices: ['a: Tim Duncan',
         'b: Lebron James',
         'c: Kobe Bryant',
@@ -185,7 +185,7 @@ $(document).ready(function () {
                 $('#d').text('');
                 $('.answer').text('');
                // console.log('hideContent');
-            }, 2000); questionIndex++;
+            }, 4000); questionIndex++;
            // console.log('hideContent2')
         }
             
@@ -196,7 +196,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 giveQuestions(questionIndex);
                 //console.log('loadNextContent');
-            }, 2000)
+            }, 4000)
         } else {
             $('.choice').hide();
             score();
@@ -231,7 +231,7 @@ $(document).ready(function () {
     //show scores after game
     function score() {
     $('.question').empty();
-        $('.duncan').text(nbaTrivia[10].answer)
+        $('.titlecontainer').html('<h3 class="title m-2 p-2 text-center text-light">'+ nbaTrivia[10].answer +'</h3>')
         $('.question').append("<p>" + rightAnswers + " correct</p>");
         $('.question').append("<p>" + wrongAnswers + " incorrect</p>");
         $('.question').append("CLICK THE GAME LOGO TO RESTART");
