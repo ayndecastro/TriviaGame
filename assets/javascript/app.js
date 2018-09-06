@@ -273,7 +273,9 @@ $(document).ready(function () {
                 wrong();
                 timer.reset();
                 if (questionIndex < nbaTrivia.length) {
-                    giveQuestions(questionIndex);
+                    setTimeout(function () {
+                        giveQuestions(questionIndex);
+                    }, 4000)
                 } else {
                     $('.choice').hide();
                     score();
