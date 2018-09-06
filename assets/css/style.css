@@ -1,0 +1,46 @@
+*{
+    font-family: 'Press Start 2P'
+}
+body {
+    background: url('../images/background.jpg');
+}
+.row {
+    min-height: 70px;
+}
+.main{
+    background: rgba(0, 0, 0, 0.842);
+}
+.choice {
+    -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -ms-transition:all 0.5s ease-out;
+  -o-transition:all 0.5s ease-out;
+  transition:all 0.5s ease-out;
+}
+.choice:hover {
+    background: black;
+    -webkit-transform:scale(1.1);
+  -moz-transform:scale(1.1);
+  -ms-transform:scale(1.1);
+  -o-transform:scale(1.1);
+  transform:scale(1.1);
+}
+
+.start {
+    background: url('../images/startpc.png');
+    height: 470px;
+    width: 600px;
+    font-size: 70px;
+}
+.start:hover{
+    background: url('../images/start.gif');
+}
+.timer{
+    width: 320px;
+}
+.answer{
+    background: red;
+}
+.question{
+    color: gainsboro;
+}
