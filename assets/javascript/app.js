@@ -84,12 +84,12 @@ let question8 = {
 };
 
 let question9 = {
-    question: "Who is 'The Admiral'",
+    question: "'The Admiral'",
     choices: ['a: Moses Malone',
         'b: David Robinson',
         'c: Bill Russell',
         'd: Magic Johnson'],
-    answer: "Tim Duncan & Greg Popovich",
+    answer: "David Robinson",
     condition: [false, true, false, false]
 };
 
