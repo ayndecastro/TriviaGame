@@ -12,3 +12,5 @@ enjoy the game!
 
 
 oh. and uhh. Tim DUncan is the greatest player of all time! 
+
+also, play with music on.
