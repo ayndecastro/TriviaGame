@@ -1,6 +1,5 @@
-
 //test
-//console.log('hello');
+console.log('Game Start');
 
 //questions variables
 let question1 = {
@@ -14,17 +13,18 @@ let question1 = {
 };
 
 let question2 = {
-    question: "Which NBA player won the most Most Valuable Player Awards?",
-    choices: ['a: Kareem Abdul-Jabbar',
-        'b: Bill Russell',
-        'c: Larry Bird',
-        'd: Lebron James'],
-    answer: 'Kareem Abdul-Jabbar',
-    condition: [true, false, false, false]
+    question: "'His Airness'",
+    choices: ['a: Wilt Chamberlain',
+        'b: Kareem Abdul-Jabbar',
+        'c: Lebron James',
+        'd: Michael Jordan'],
+    answer: 'Michael Jordan',
+    condition: [false, false, false, true]
 };
 
+
 let question3 = {
-    question: "This NBA player is nicknamed 'The Diesel'",
+    question: "'The Diesel'",
     choices: ['a: Kobe Bryant',
         "b: Shaquel O'Neal",
         'c: Lebron James',
@@ -54,13 +54,13 @@ let question5 = {
 };
 
 let question6 = {
-    question: "Who is the 2014 NBA champion of the year?",
-    choices: ['a: Los Angeles Lakers',
-        'b: Golden State Warriors',
-        'c: San Antonio Spurs',
-        'd: Miami heat'],
-    answer: "San Antonio Spurs",
-    condition: [false, false, true, false]
+    question: "Which NBA player won the most Most Valuable Player Awards?",
+    choices: ['a: Kareem Abdul-Jabbar',
+        'b: Bill Russell',
+        'c: Larry Bird',
+        'd: Lebron James'],
+    answer: 'Kareem Abdul-Jabbar',
+    condition: [true, false, false, false]
 };
 
 let question7 = {
@@ -74,21 +74,21 @@ let question7 = {
 };
 
 let question8 = {
-    question: "He played for the Chicago Bulls and was nicknamed 'His Airness'.",
-    choices: ['a: Wilt Chamberlain',
-        'b: Kareem Abdul-Jabbar',
-        'c: Lebron James',
-        'd: Michael Jordan'],
-    answer: 'Michael Jordan',
-    condition: [false, false, false, true]
+    question: "Who is the 2014 NBA champion of the year?",
+    choices: ['a: Los Angeles Lakers',
+        'b: Golden State Warriors',
+        'c: San Antonio Spurs',
+        'd: Miami heat'],
+    answer: "San Antonio Spurs",
+    condition: [false, false, true, false]
 };
 
 let question9 = {
-    question: "player and coach duo with the most wins.",
-    choices: ['a: Michael Jordan & Phil Jackson',
-        'b: Tim Duncan & Greg Popovich',
-        'c: Bill Russell & Red Auerbach',
-        'd: Magic Johnson & Pat Riley'],
+    question: "Who is 'The Admiral'",
+    choices: ['a: Moses Malone',
+        'b: David Robinson',
+        'c: Bill Russell',
+        'd: Magic Johnson'],
     answer: "Tim Duncan & Greg Popovich",
     condition: [false, true, false, false]
 };
@@ -153,14 +153,18 @@ $(document).ready(function () {
     //start game button
     function startGame() {
 
-        $('.startcontainer').append('<button class ="rounded text-muted start"></button>');
-        $('.titlecontainer').append('<h3 class="title m-2 p-2 text-center text-light">welcome to NBA trivia! Press the SPURS family to start!</h3>');
-        $('#a').hide();
+        $('.startcontainer').append('<button class ="rounded text-muted start"></button>'); // spurs gif container
+        $('.titlecontainer').append('<h3 class="title m-2 p-2 text-center text-light">welcome to NBA trivia! click the SPURS photo to start!</h3>'); //first page title
+        //hide choices on opening
+        $('#a').hide(); 
         $('#b').hide();
         $('#c').hide();
         $('#d').hide();
+        //hides timer and answer column on start screen
         $('.timer').hide();
         $('.answer').hide();
+        //load questions on click function
+        //loads the questions when spurs gif is clicked
         $('.start').on('click', function () {
             $(this).hide();
             timer.start();
@@ -170,7 +174,7 @@ $(document).ready(function () {
 
     }
 
-    // load next
+    //hide content
     function hideContent() {
         if(gameEnd === false){
             setTimeout(function () {
@@ -186,7 +190,7 @@ $(document).ready(function () {
         }
             
     };
-    
+    //load next question
     function loadNextContent() {
         if (questionIndex < nbaTrivia.length) {
             setTimeout(function () {
@@ -200,6 +204,7 @@ $(document).ready(function () {
         }
     };
 
+    // prevents hideContent and loadNextContent function from executing
     function end (){
         //console.log('end');
         if(questionIndex === nbaTrivia.length){
@@ -278,15 +283,16 @@ $(document).ready(function () {
         }
     }
 
+    //function that determines which gif will be loaded
     function winOrlose() {
-        if (rightAnswers === 11){
+        if (rightAnswers === 11){ //if you score a perfect score, spurs big 3 gif will be loaded
             $('.question').append("<embed src='https://media.giphy.com/media/F03RM3pk6YtnW/giphy.gif'>");
-        } else if(rightAnswers >= wrongAnswers && rightAnswers !== 11 ){
+        } else if(rightAnswers >= wrongAnswers && rightAnswers !== 11 ){ //if you win, Kobe gif will be loaded
             $('.question').append("<embed src='https://media.giphy.com/media/NfiEWXSA1fVoQ/giphy.gif'>");
-        } else {
+        } else { //if you lose, lebron gif will be loaded
             $('.question').append("<embed src='https://media.giphy.com/media/xTiTnDAP0RiCo9k85W/giphy.gif'>")
         }
-        $('.answer').text('');
+        $('.answer').text(''); //empty answer column
         //console.log('winOrLose');
     };
 
